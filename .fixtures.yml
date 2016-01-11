@@ -4,7 +4,7 @@ fixtures:
 
 # profile module layout, default include ntp module
     ntp: "https://github.com/puppetlabs/puppetlabs-ntp.git"
-    rspec_monitor: "git://github.com/pgomersbach/test-rspec_monitor.git"
+    mysql: "https://github.com/puppetlabs/puppetlabs-mysql.git"
 
   symlinks:
     profile_mysql: "#{source_dir}"

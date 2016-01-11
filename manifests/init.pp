@@ -9,5 +9,8 @@
 #
 class profile_mysql
 {
-  # a profile class includes one or more classes, please include below
+  class { '::mysql::server':
+    remove_default_accounts => true,
+  }
+
 }
