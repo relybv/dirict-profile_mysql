@@ -9,3 +9,8 @@ AMI:
       :foss: ami-56e48766
     :region: us-west-2
 
+  debian68:
+    :image:
+      :foss: ami-431a4273
+    :region: us-west-2
+
