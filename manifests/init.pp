@@ -8,9 +8,15 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class profile_mysql
-{
-  class { '::mysql::server':
-    remove_default_accounts => true,
-  }
+(
+  $packages = $::profile_mysql::params::packages,
+) inherits ::profile_mysql::params {
 
+  # validate parameters here
+
+  class { '::profile_mysql::install': } ->
+  class { '::profile_mysql::config': } ~>
+  class { '::profile_mysql::service': } ->
+  Class['::profile_mysql']
 }
+

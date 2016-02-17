@@ -4,7 +4,8 @@
 #
 class profile_mysql::install {
 
-  package { $::profile_mysql::package_name:
-    ensure => present,
+  class { '::mysql::server':
+    remove_default_accounts => true,
   }
+
 }

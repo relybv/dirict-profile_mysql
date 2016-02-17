@@ -5,10 +5,4 @@
 #
 class profile_mysql::service {
 
-  service { $::profile_mysql::service_name:
-    ensure     => running,
-    enable     => true,
-    hasstatus  => true,
-    hasrestart => true,
-  }
 }

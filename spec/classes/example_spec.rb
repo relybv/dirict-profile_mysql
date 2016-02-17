@@ -15,6 +15,11 @@ describe 'profile_mysql' do
 
           it { is_expected.to compile.with_all_deps }
           it { is_expected.to contain_class('profile_mysql') }
+          it { is_expected.to contain_class('profile_mysql::install') }
+          it { is_expected.to contain_class('profile_mysql::config') }
+          it { is_expected.to contain_class('profile_mysql::params') }
+          it { is_expected.to contain_class('profile_mysql::service') }
+
 
           it { is_expected.to contain_class('mysql::server') }
   
