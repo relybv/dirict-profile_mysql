@@ -49,7 +49,7 @@ if [ -d /root/profile_mysql ]; then
   git pull
 else
   echo "Cloning repo"
-  git clone https://github.com/pgomersbach/dirict-profile_mysql.git /root/profile_mysql
+  git clone https://github.com/relybv/dirict-profile_mysql.git /root/profile_mysql
   cd /root/profile_mysql
 fi
 
