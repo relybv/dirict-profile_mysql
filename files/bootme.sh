@@ -69,5 +69,10 @@ echo "Preparing modules"
 bundle exec rake spec_prep
 # copy to puppet module location
 cp -a /root/profile_mysql/spec/fixtures/modules/* $MODULEDIR
+
 echo "Run puppet apply"
-puppet apply -e "include profile_mysql"
+if [ "$PUPPETMAJOR" = 3 ]; then
+  /usr/bin/puppet apply -e "include profile_mysql"
+else
+  /opt/puppetlabs/bin/puppet apply -e "include profile_mysql"
+fi
