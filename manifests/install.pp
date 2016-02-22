@@ -8,4 +8,6 @@ class profile_mysql::install {
     remove_default_accounts => true,
   }
 
+  class { '::mysql::client': }
+
 }

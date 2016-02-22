@@ -9,7 +9,10 @@
 #
 class profile_mysql
 (
-  $packages = $::profile_mysql::params::packages,
+  $dbname = $::profile_mysql::params::dbname,
+  $dbuser = $::profile_mysql::params::dbuser,
+  $dbpassword = $::profile_mysql::params::dbpassword,
+  $dbgrant = $::profile_mysql::params::dbgrant,
 ) inherits ::profile_mysql::params {
 
   # validate parameters here

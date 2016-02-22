@@ -20,10 +20,12 @@ describe 'profile_mysql' do
           it { is_expected.to contain_class('profile_mysql::params') }
           it { is_expected.to contain_class('profile_mysql::service') }
 
-
           it { is_expected.to contain_class('mysql::server') }
-  
+          it { is_expected.to contain_class('mysql::client') }
 
+          it { is_expected.to contain_mysql__db('nd-app') }
+          it { is_expected.to contain_mysql_database('nd-app') }
+          it { is_expected.to contain_mysql_user('nd-app@localhost') }
         end
       end
     end
