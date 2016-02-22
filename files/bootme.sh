@@ -12,6 +12,7 @@
 PUPPETMAJORVERSION=4
 
 ### Code start ###
+export DEBIAN_FRONTEND=noninteractive
 if [ "$(id -u)" != "0" ]; then
   echo "This script must be run as root." >&2
   exit 1

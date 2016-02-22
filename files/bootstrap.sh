@@ -12,6 +12,7 @@
 PUPPETMAJORVERSION=4
 
 ### Code start ###
+export DEBIAN_FRONTEND=noninteractive
 function provision_ubuntu {
     # get release info
     if [ -f /etc/lsb-release ]; then
