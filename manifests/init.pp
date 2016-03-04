@@ -7,6 +7,7 @@
 # [*sample_parameter*]
 #   Explanation of what this parameter affects and what it defaults to.
 #
+#
 class profile_mysql
 (
   $dbname = $::profile_mysql::params::dbname,
