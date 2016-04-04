@@ -5,6 +5,7 @@ fixtures:
 # profile module layout, default include ntp module
     ntp: "https://github.com/puppetlabs/puppetlabs-ntp.git"
     mysql: "https://github.com/puppetlabs/puppetlabs-mysql.git"
+    lvm: "https://github.com/puppetlabs/puppetlabs-lvm.git"
 
   symlinks:
     profile_mysql: "#{source_dir}"

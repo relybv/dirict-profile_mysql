@@ -15,6 +15,7 @@ describe 'profile_mysql' do
 
           it { is_expected.to compile.with_all_deps }
           it { is_expected.to contain_class('profile_mysql') }
+          it { is_expected.to contain_class('profile_mysql::lvm') }
           it { is_expected.to contain_class('profile_mysql::install') }
           it { is_expected.to contain_class('profile_mysql::config') }
           it { is_expected.to contain_class('profile_mysql::params') }
@@ -23,6 +24,10 @@ describe 'profile_mysql' do
           it { is_expected.to contain_class('mysql::server') }
           it { is_expected.to contain_class('mysql::client') }
 
+          it { should contain_physical_volume('/dev/vdb') }
+          it { should contain_volume_group('dbvg').with({ :physical_volumes => [ '/dev/vdb' ] }) }
+          it { should contain_logical_volume('dblv').with( { :volume_group => 'dbvg'}) }
+          it { is_expected.to contain_Filesystem('/dev/dbvg/dblv') }
           it { is_expected.to contain_mysql__db('nd-app') }
           it { is_expected.to contain_mysql_database('nd-app') }
           it { is_expected.to contain_mysql_user('nd-app@localhost') }

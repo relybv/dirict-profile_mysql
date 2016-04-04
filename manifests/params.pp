@@ -8,5 +8,5 @@ class profile_mysql::params {
   $dbuser = 'nd-app'
   $dbpassword = 'mypass'
   $dbgrant = ['GRANT', 'SELECT', 'INSERT', 'UPDATE', 'DELETE']
-
+  $dbvol = '/dev/vdb'
 }
