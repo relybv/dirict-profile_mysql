@@ -33,6 +33,7 @@ class profile_mysql::lvm {
   filesystem { '/dev/nfsvg/nfslv':
     ensure  => present,
     fs_type => 'ext4',
+    atboot  => true,
   }
 
 }
