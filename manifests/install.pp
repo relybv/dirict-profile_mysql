@@ -9,7 +9,7 @@ class profile_mysql::install {
   }
   class { '::mysql::server':
     remove_default_accounts => true,
-    require                 => File['mysql'],
+    require                 => File['/etc/mysql'],
   }
 
   class { '::mysql::client': }
