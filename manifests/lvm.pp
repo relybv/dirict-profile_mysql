@@ -30,7 +30,7 @@ class profile_mysql::lvm {
     volume_group => 'nfsvg',
   }
 
-  filesystem { '/dev/myvg/nfslv':
+  filesystem { '/dev/nfsvg/nfslv':
     ensure  => present,
     fs_type => 'ext4',
   }
