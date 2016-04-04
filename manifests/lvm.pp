@@ -26,8 +26,9 @@ class profile_mysql::lvm {
   }
 
   logical_volume { 'nfslv':
-    ensure       => present,
-    volume_group => 'nfsvg',
+    ensure            => present,
+    volume_group      => 'nfsvg',
+    mountpath_require => true,
   }
 
   filesystem { '/dev/nfsvg/nfslv':
