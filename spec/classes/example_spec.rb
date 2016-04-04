@@ -26,7 +26,7 @@ describe 'profile_mysql' do
 
           it { is_expected.to contain_lvm__logical_volume('dblv') }
           it { is_expected.to contain_lvm__volume_group('dbvg') }
-
+          it { is_expected.to contain_file('/etc/mysql') }
           it { is_expected.to contain_mysql__db('nd-app') }
           it { is_expected.to contain_mysql_database('nd-app') }
           it { is_expected.to contain_mysql_user('nd-app@localhost') }

@@ -5,13 +5,12 @@
 class profile_mysql::lvm {
 
   class { '::lvm':
+    manage_pkg    => true,
     volume_groups => {
       'dbvg' => {
         physical_volumes => [ $::profile_mysql::dbvol ],
         logical_volumes  => {
-          'dblv' => {
-            'size' => '20G',
-          },
+          'dblv' => { },
         },
       },
     },
