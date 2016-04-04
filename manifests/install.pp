@@ -4,8 +4,12 @@
 #
 class profile_mysql::install {
 
+  file { '/etc/mysql':
+    ensure => directory,
+  }
   class { '::mysql::server':
     remove_default_accounts => true,
+    require                 => File['mysql'],
   }
 
   class { '::mysql::client': }
