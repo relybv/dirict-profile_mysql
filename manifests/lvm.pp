@@ -16,11 +16,23 @@ class profile_mysql::lvm {
     },
   }
 
-  lvm::volume { 'nfslv':
+  physical_volume { $::profile_mysql::nfsvol:
     ensure => present,
-    vg     => 'nfsvg',
-    pv     => [ $::profile_mysql::nfsvol ],
-    fstype => 'ext4',
+  }
+
+  volume_group { 'nfsvg':
+    ensure           => present,
+    physical_volumes => $::profile_mysql::nfsvol,
+  }
+
+  logical_volume { 'nfslv':
+    ensure       => present,
+    volume_group => 'nfsvg',
+  }
+
+  filesystem { '/dev/myvg/nfslv':
+    ensure  => present,
+    fs_type => 'ext4',
   }
 
 }
