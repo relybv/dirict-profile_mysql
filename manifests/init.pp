@@ -18,7 +18,7 @@ class profile_mysql
 ) inherits ::profile_mysql::params {
 
   # validate parameters here
-  class { '::profile_mysql::lvm': } ->
+#  class { '::profile_mysql::lvm': } ->
   class { '::profile_mysql::install': } ->
   class { '::profile_mysql::config': } ~>
   class { '::profile_mysql::service': } ->
