@@ -3,6 +3,7 @@
 # This class is called from profile_mysql for logical volume manager.
 #
 class profile_mysql::lvm {
+  include lvm
 
   physical_volume { $::profile_mysql::dbvol:
     ensure => present,
