@@ -50,6 +50,7 @@ class profile_mysql::lvm {
   mount { '/mnt/nfs':
     ensure => mounted,
     device => '/dev/nfsvg/nfslv',
+    fstype => 'ext4',
   }
 
 }
