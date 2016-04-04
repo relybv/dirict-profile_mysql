@@ -9,4 +9,5 @@ class profile_mysql::params {
   $dbpassword = 'mypass'
   $dbgrant = ['GRANT', 'SELECT', 'INSERT', 'UPDATE', 'DELETE']
   $dbvol = '/dev/vdb'
+  $nfsvol = '/dev/vdc'
 }

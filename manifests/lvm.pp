@@ -16,4 +16,11 @@ class profile_mysql::lvm {
     },
   }
 
+  lvm::volume { 'nfslv':
+    ensure => present,
+    vg     => 'nfsvg',
+    pv     => [ $::profile_mysql::nfsvol ],
+    fstype => 'ext4',
+  }
+
 }

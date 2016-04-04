@@ -15,6 +15,7 @@ class profile_mysql
   $dbpassword = $::profile_mysql::params::dbpassword,
   $dbgrant = $::profile_mysql::params::dbgrant,
   $dbvol = $::profile_mysql::params::dbvol,
+  $nfsvol = $::profile_mysql::params::nfsvol,
 ) inherits ::profile_mysql::params {
 
   # validate parameters here
