@@ -48,7 +48,7 @@ class profile_mysql::lvm {
     atboot  => true,
   }
 
-  file { '/mnt/db':
+  file { '/var/lib/mysql':
     ensure => directory,
   }
 
@@ -56,7 +56,7 @@ class profile_mysql::lvm {
     ensure => directory,
   }
 
-  mount { '/mnt/db':
+  mount { '/var/lib/mysql':
     ensure => mounted,
     device => '/dev/dbvg/dblv',
     fstype => 'ext4',

@@ -27,9 +27,9 @@ describe 'profile_mysql' do
           it { is_expected.to contain_physical_volume('/dev/vdb') }
           it { is_expected.to contain_volume_group('dbvg') }
           it { is_expected.to contain_logical_volume('dblv') }
-          it { is_expected.to contain_file('/mnt/db') }
+          it { is_expected.to contain_file('/var/lib/mysql') }
           it { is_expected.to contain_filesystem('/dev/dbvg/dblv') }
-          it { is_expected.to contain_mount('/mnt/db') }
+          it { is_expected.to contain_mount('/var/lib/mysql') }
           it { is_expected.to contain_physical_volume('/dev/vdc') }
           it { is_expected.to contain_volume_group('nfsvg') }
           it { is_expected.to contain_logical_volume('nfslv') }
