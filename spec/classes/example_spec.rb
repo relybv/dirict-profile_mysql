@@ -24,8 +24,19 @@ describe 'profile_mysql' do
           it { is_expected.to contain_class('mysql::server') }
           it { is_expected.to contain_class('mysql::client') }
 
-          it { is_expected.to contain_lvm__logical_volume('dblv') }
-          it { is_expected.to contain_lvm__volume_group('dbvg') }
+          it { is_expected.to contain_physical_volume('/dev/vdb') }
+          it { is_expected.to contain_volume_group('dbvg') }
+          it { is_expected.to contain_logical_volume('dblv') }
+          it { is_expected.to contain_file('/mnt/db') }
+          it { is_expected.to contain_filesystem('/dev/dbvg/dblv') }
+          it { is_expected.to contain_mount('/mnt/db') }
+          it { is_expected.to contain_physical_volume('/dev/vdc') }
+          it { is_expected.to contain_volume_group('nfsvg') }
+          it { is_expected.to contain_logical_volume('nfslv') }
+          it { is_expected.to contain_file('/mnt/nfs') }
+          it { is_expected.to contain_filesystem('/dev/nfsvg/nfslv') }
+          it { is_expected.to contain_mount('/mnt/nfs') }
+
           it { is_expected.to contain_file('/etc/mysql') }
           it { is_expected.to contain_mysql__db('nd-app') }
           it { is_expected.to contain_mysql_database('nd-app') }
