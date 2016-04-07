@@ -40,7 +40,6 @@ class profile_mysql::lvm {
     ensure  => present,
     fs_type => 'ext4',
     atboot  => true,
-    options => 'noatime,nodiratime,nobarrier',
   }
 
   filesystem { '/dev/nfsvg/nfslv':
