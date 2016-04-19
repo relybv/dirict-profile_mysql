@@ -4,12 +4,12 @@
 #
 class profile_mysql::install {
 
-  file { '/etc/mysql':
-    ensure => directory,
-  }
+#  file { '/etc/mysql':
+#    ensure => directory,
+#  }
   class { '::mysql::server':
     remove_default_accounts => true,
-    require                 => File['/etc/mysql'],
+#    require                 => File['/etc/mysql'],
   }
 
   class { '::mysql::client': }
