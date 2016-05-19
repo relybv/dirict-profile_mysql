@@ -19,7 +19,13 @@ class profile_mysql
 ) inherits ::profile_mysql::params {
 
   # validate parameters here
-  class { '::profile_mysql::lvm': } ->
+
+  if 'vdb' in $blockdevices {
+    notify {'/path/to/file  found': }
+    class { '::profile_mysql::lvm':
+      notify => Class[ '::profile_mysql::install' ],
+    } 
+  }
   class { '::profile_mysql::install': } ->
   class { '::profile_mysql::config': } ~>
   class { '::profile_mysql::service': } ->
