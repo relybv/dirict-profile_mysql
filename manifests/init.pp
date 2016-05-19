@@ -20,11 +20,11 @@ class profile_mysql
 
   # validate parameters here
 
-  if 'vdb' in $blockdevices {
+  if 'vdb' in $::blockdevices {
     notify {'/path/to/file  found': }
     class { '::profile_mysql::lvm':
       notify => Class[ '::profile_mysql::install' ],
-    } 
+    }
   }
   class { '::profile_mysql::install': } ->
   class { '::profile_mysql::config': } ~>
