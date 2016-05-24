@@ -10,7 +10,6 @@ class profile_mysql::install {
     'innodb_file_per_table'           => '',
     'innodb_buffer_pool_size'         => '8G',
     'innodb_additional_mem_pool_size' => '20M',
-    'innodb_log_file_size'            => '64M',
     'thread_cache_size'               => '16',
     'max_connections'                 => '100',
     'query_cache_size'                => '128M',
