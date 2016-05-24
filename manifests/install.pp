@@ -4,12 +4,22 @@
 #
 class profile_mysql::install {
 
-#  file { '/etc/mysql':
-#    ensure => directory,
-#  }
+
+  $override_options = {
+  'mysqld' => {
+    'innodb_file_per_table'           => '',
+    'innodb_buffer_pool_size'         => '8G',
+    'innodb_additional_mem_pool_size' => '20M',
+    'innodb_log_file_size'            => '64M',
+    'thread_cache_size'               => '16',
+    'max_connections'                 => '100',
+    'query_cache_size'                => '128M',
+    'bind_address'                    => '0.0.0.0',
+  },
+}
   class { '::mysql::server':
     remove_default_accounts => true,
-#    require                 => File['/etc/mysql'],
+    override_options        => $override_options,
   }
 
   class { '::mysql::client': }
