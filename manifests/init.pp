@@ -16,6 +16,11 @@ class profile_mysql
   $dbgrant = $::profile_mysql::params::dbgrant,
   $dbvol = $::profile_mysql::params::dbvol,
   $nfsvol = $::profile_mysql::params::nfsvol,
+  $innodb_buffer_pool_size         = $::profile_mysql::params::innodb_buffer_pool_size,
+  $innodb_additional_mem_pool_size = $::profile_mysql::params::innodb_additional_mem_pool_size,
+  $thread_cache_size               = $::profile_mysql::params::thread_cache_size,
+  $max_connections                 = $::profile_mysql::params::max_connections,
+  $query_cache_size                = $::profile_mysql::params::query_cache_size,
 ) inherits ::profile_mysql::params {
 
   # validate parameters here

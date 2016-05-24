@@ -10,4 +10,9 @@ class profile_mysql::params {
   $dbgrant = ['GRANT', 'SELECT', 'INSERT', 'UPDATE', 'DELETE']
   $dbvol = '/dev/vdb'
   $nfsvol = '/dev/vdc'
+  $innodb_buffer_pool_size         = '8G'
+  $innodb_additional_mem_pool_size = '20M'
+  $thread_cache_size               = '16'
+  $max_connections                 = '100'
+  $query_cache_size                = '128M'
 }

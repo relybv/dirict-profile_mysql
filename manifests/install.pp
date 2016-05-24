@@ -8,11 +8,11 @@ class profile_mysql::install {
   $override_options = {
   'mysqld' => {
     'innodb_file_per_table'           => '',
-    'innodb_buffer_pool_size'         => '8G',
-    'innodb_additional_mem_pool_size' => '20M',
-    'thread_cache_size'               => '16',
-    'max_connections'                 => '100',
-    'query_cache_size'                => '128M',
+    'innodb_buffer_pool_size'         => $::profile_mysql::innodb_buffer_pool_size,
+    'innodb_additional_mem_pool_size' => $::profile_mysql::innodb_additional_mem_pool_size,
+    'thread_cache_size'               => $::profile_mysql::thread_cache_size,
+    'max_connections'                 => $::profile_mysql::max_connections,
+    'query_cache_size'                => $::profile_mysql::query_cache_size,
     'bind_address'                    => '0.0.0.0',
   },
 }
