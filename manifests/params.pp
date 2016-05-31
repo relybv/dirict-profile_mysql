@@ -6,7 +6,7 @@
 class profile_mysql::params {
   $dbname = 'nd-app'
   $dbuser = 'nd-app'
-  $dbpassword = hiera('db_password', 'mypass')
+  $dbpassword = hiera('db_password', 'changeme')
   $dbgrant = ['GRANT', 'SELECT', 'INSERT', 'UPDATE', 'DELETE']
   $dbvol = '/dev/vdb'
   $nfsvol = '/dev/vdc'
