@@ -7,7 +7,7 @@ class profile_mysql::config {
   mysql::db { $::profile_mysql::dbname:
     user     => $::profile_mysql::dbuser,
     password => $::profile_mysql::dbpassword,
-    host     => 'localhost',
+    host     => '%',
     grant    => $::profile_mysql::dbgrant,
   }
 
