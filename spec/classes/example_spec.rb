@@ -6,7 +6,12 @@ describe 'profile_mysql' do
       context "on #{os}" do
         let(:facts) do
           facts.merge({
-            :concat_basedir => "/foo"
+            :concat_basedir => "/foo",
+            :memory => {
+              'system' => {
+                'total_bytes' => 4096
+              }
+            }
           })
         end
 
@@ -39,7 +44,7 @@ describe 'profile_mysql' do
 
           it { is_expected.to contain_mysql__db('nd-app') }
           it { is_expected.to contain_mysql_database('nd-app') }
-          it { is_expected.to contain_mysql_user('nd-app@localhost') }
+          it { is_expected.to contain_mysql_user('nd-app@%') }
         end
       end
     end
