@@ -10,7 +10,13 @@ class profile_mysql::params {
   $dbgrant = ['GRANT', 'SELECT', 'INSERT', 'UPDATE', 'DELETE']
   $dbvol = '/dev/vdb'
   $nfsvol = '/dev/vdc'
-  $innodb_buffer_pool_size         = $::memory[system][total_bytes] / 2
+  if $::memory[system][total_bytes] != undef {
+    $innodb_buffer_pool_size         = $::memory[system][total_bytes] / 2
+  }
+  else
+  {
+    $innodb_buffer_pool_size       = 512000000
+  }
   $innodb_additional_mem_pool_size = '20M'
   $thread_cache_size               = '16'
   $max_connections                 = '100'
