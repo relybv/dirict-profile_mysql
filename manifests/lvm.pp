@@ -52,9 +52,9 @@ class profile_mysql::lvm {
     ensure => directory,
   }
 
-  file { '/mnt/nfs':
-    ensure => directory,
-  }
+#  file { '/mnt/nfs':
+#    ensure => directory,
+#  }
 
   mount { '/var/lib/mysql':
     ensure => mounted,
