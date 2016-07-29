@@ -8,6 +8,14 @@ class profile_mysql::install {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
+  # always do apt-get update before installing packages
+  exec { 'apt-update':
+    command => '/usr/bin/apt-get update',
+  }
+
+  Exec['apt-update'] -> Package <| |>
+
+  # mysql options
   $override_options = {
   'mysqld' => {
     'innodb_file_per_table'           => '',
@@ -21,6 +29,7 @@ class profile_mysql::install {
     'innodb_buffer_pool_instances'    => '2',
   },
 }
+
   class { '::mysql::server':
     remove_default_accounts => true,
     override_options        => $override_options,
