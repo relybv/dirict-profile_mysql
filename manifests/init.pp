@@ -25,7 +25,7 @@ class profile_mysql
 
   # validate parameters here
 
-  if 'vdb' in $::blockdevices {
+  if 'vdb' in $::disks {
     class { '::profile_mysql::lvm':
       notify => Class[ '::profile_mysql::install' ],
     }
