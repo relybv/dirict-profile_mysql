@@ -24,6 +24,17 @@ class profile_mysql
 ) inherits ::profile_mysql::params {
 
   # validate parameters here
+  validate_string($dbname)
+  validate_string($dbuser)
+  validate_string($dbpassword)
+  validate_array($dbgrant)
+  validate_string($dbvol)
+  validate_string($nfsvol)
+  validate_string($innodb_buffer_pool_size)
+  validate_string($innodb_additional_mem_pool_size)
+  validate_string($thread_cache_size)
+  validate_numeric($max_connections)
+  validate_string($query_cache_size)
 
   if 'vdb' in $::disks {
     class { '::profile_mysql::lvm':
