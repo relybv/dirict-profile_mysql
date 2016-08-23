@@ -75,7 +75,7 @@ class profile_mysql::lvm {
     ensure  => mounted,
     device  => '/dev/nfsvg/nfslv',
     fstype  => 'ext4',
-    require => Filesystem['/dev/dbvg/nfslv'],
+    require => Filesystem['/dev/nfsvg/nfslv'],
   }
 
 }
