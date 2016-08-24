@@ -23,9 +23,11 @@ describe 'profile_mysql class' do
       end
     end
 
+    describe package('mysql-server') do
+      it { is_expected.to be_installed }
+    end
 
-  
-   describe package('mysql-server') do
+    describe package('mysql-client') do
       it { is_expected.to be_installed }
     end
 
@@ -37,7 +39,6 @@ describe 'profile_mysql class' do
     describe port(3306) do
       it { should be_listening.with('tcp') }
     end
-  
 
   end
 end
