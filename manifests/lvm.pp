@@ -60,8 +60,8 @@ class profile_mysql::lvm {
     ensure => directory,
   }
 
-  file { '/mnt/nfs':
-    ensure => directory,
+  exec { '/bin/mkdir /mnt/nfs':
+    creates => '/mnt/nfs',
   }
 
   mount { '/var/lib/mysql':
