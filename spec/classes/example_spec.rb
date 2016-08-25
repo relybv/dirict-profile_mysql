@@ -42,8 +42,8 @@ describe 'profile_mysql' do
 #          it { is_expected.to contain_filesystem('/dev/nfsvg/nfslv') }
 #          it { is_expected.to contain_mount('/mnt/nfs') }
 
-          it { is_expected.to contain_mysql__db('nd-app') }
-          it { is_expected.to contain_mysql_database('nd-app') }
+#          it { is_expected.to contain_mysql__db('nd-app') }
+#          it { is_expected.to contain_mysql_database('nd-app') }
           it { is_expected.to contain_mysql_user('nd-app@%') }
         end
       end

@@ -10,7 +10,6 @@
 #
 class profile_mysql
 (
-  $dbname = $::profile_mysql::params::dbname,
   $dbuser = $::profile_mysql::params::dbuser,
   $dbpassword = $::profile_mysql::params::dbpassword,
   $dbgrant = $::profile_mysql::params::dbgrant,
@@ -24,10 +23,10 @@ class profile_mysql
 ) inherits ::profile_mysql::params {
 
   # validate parameters here
-  validate_string($dbname)
-  validate_string($dbuser)
-  validate_string($dbpassword)
-  validate_array($dbgrant)
+#  validate_string($dbname)
+#  validate_string($dbuser)
+#  validate_string($dbpassword)
+#  validate_array($dbgrant)
   validate_string($dbvol)
   validate_string($nfsvol)
   validate_string($innodb_buffer_pool_size)
