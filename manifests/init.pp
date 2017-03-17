@@ -35,9 +35,11 @@ class profile_mysql
   validate_numeric($max_connections)
   validate_string($query_cache_size)
 
-  if 'vdb' in $::disks {
-    class { '::profile_mysql::lvm':
-      notify => Class[ '::profile_mysql::install' ],
+  if versioncmp($::facterversion, '2.4.6') > 0 {
+    if 'vdb' in $::disks {
+      class { '::profile_mysql::lvm':
+        notify => Class[ '::profile_mysql::install' ],
+      }
     }
   }
   class { '::profile_mysql::install': } ->
