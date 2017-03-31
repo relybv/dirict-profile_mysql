@@ -42,9 +42,9 @@ class profile_mysql
       }
     }
   }
-  class { '::profile_mysql::install': } ->
-  class { '::profile_mysql::config': } ~>
-  class { '::profile_mysql::service': } ->
-  Class['::profile_mysql']
+  class { '::profile_mysql::install': }
+  -> class { '::profile_mysql::config': }
+  ~> class { '::profile_mysql::service': }
+  -> Class['::profile_mysql']
 }
 
