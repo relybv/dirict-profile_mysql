@@ -45,6 +45,7 @@ describe 'profile_mysql' do
 #          it { is_expected.to contain_mysql__db('nd-app') }
 #          it { is_expected.to contain_mysql_database('nd-app') }
           it { is_expected.to contain_mysql_user('nd-app@%') }
+          it { is_expected.to contain_Mysql_grant('nd-app@%/*.*') }
         end
       end
     end
