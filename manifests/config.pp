@@ -8,16 +8,22 @@ class profile_mysql::config {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
-  mysql_user{ "${::profile_mysql::dbuser}@%":
+  mysql_user {"${::profile_mysql::dbuser}@%":
     ensure        => present,
     password_hash => mysql_password($::profile_mysql::dbpassword),
   }
 
-  mysql_grant { "${::profile_mysql::dbuser}@%/*.*":
+  mysql_grant {"${::profile_mysql::dbuser}@%/*.*":
     ensure     => 'present',
     options    => ['GRANT'],
     privileges => $::profile_mysql::dbgrant,
     table      => '*.*',
     user       => "${::profile_mysql::dbuser}@%",
+  }
+
+  class {'::mysql::server::monitor':
+    mysql_monitor_username => 'monitor',
+    mysql_monitor_password => 'monitor',
+    mysql_monitor_hostname => 'localhost',
   }
 }
