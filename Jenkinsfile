@@ -9,7 +9,7 @@ node {
       }
       stage('Dependencies') {
          sh 'cd $WORKSPACE'
-         sh '/usr/bin/bundle install --jobs=2 --path vendor/bundle'
+         sh '/usr/bin/bundle install --jobs=2 --path vendor/bundle --without development'
       }
       stage('Code quality') {
          parallel (
