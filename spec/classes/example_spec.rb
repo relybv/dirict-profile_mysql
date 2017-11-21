@@ -28,6 +28,8 @@ describe 'profile_mysql' do
           it { is_expected.to contain_class('mysql::server') }
           it { is_expected.to contain_class('mysql::client') }
 
+          it { is_expected.to contain_package('pigz') }
+
           it { is_expected.to contain_cron('bkudb') }
 
           it { is_expected.to contain_file('/root/backup.sh') }

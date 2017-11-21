@@ -31,6 +31,10 @@ class profile_mysql::install {
 
   class { '::mysql::client': }
 
+  package { 'pigz':
+    ensure => installed,
+  }
+
   file { '/root/backup.sh':
     source => 'puppet:///modules/profile_mysql/backup.sh',
     mode   => '0744',
