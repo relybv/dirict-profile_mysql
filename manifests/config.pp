@@ -26,4 +26,11 @@ class profile_mysql::config {
     mysql_monitor_password => 'monitor',
     mysql_monitor_hostname => 'localhost',
   }
+
+  cron { 'bkudb':
+    command => '/root/backup.sh',
+    user    => 'root',
+    hour    => 1,
+    minute  => 0,
+  }
 }

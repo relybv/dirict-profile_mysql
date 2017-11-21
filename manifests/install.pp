@@ -31,4 +31,8 @@ class profile_mysql::install {
 
   class { '::mysql::client': }
 
+  file { '/root/backup.sh':
+    source => 'puppet:///modules/profile_mysql/backup.sh',
+  }
+
 }
