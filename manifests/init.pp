@@ -15,6 +15,7 @@ class profile_mysql
   $dbgrant = $::profile_mysql::params::dbgrant,
   $dbvol = $::profile_mysql::params::dbvol,
   $nfsvol = $::profile_mysql::params::nfsvol,
+  $datadir = $::profile_mysql::params::datadir,
   $innodb_buffer_pool_size         = $::profile_mysql::params::innodb_buffer_pool_size,
   $innodb_additional_mem_pool_size = $::profile_mysql::params::innodb_additional_mem_pool_size,
   $thread_cache_size               = $::profile_mysql::params::thread_cache_size,
@@ -27,6 +28,7 @@ class profile_mysql
 #  validate_string($dbuser)
 #  validate_string($dbpassword)
 #  validate_array($dbgrant)
+  validate_string($datadir)
   validate_string($dbvol)
   validate_string($nfsvol)
   validate_string($innodb_buffer_pool_size)

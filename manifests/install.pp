@@ -17,6 +17,7 @@ class profile_mysql::install {
     'thread_cache_size'               => $::profile_mysql::thread_cache_size,
     'max_connections'                 => $::profile_mysql::max_connections,
     'query_cache_size'                => $::profile_mysql::query_cache_size,
+    'datadir'                         => $::profile_mysql::datadir,
     'bind_address'                    => '0.0.0.0',
     'innodb_flush_method'             => 'O_DSYNC',
     'innodb_buffer_pool_instances'    => '2',
