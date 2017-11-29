@@ -8,6 +8,7 @@ class profile_mysql::install {
     fail("Use of private class ${name} by ${caller_module_name}")
   }
 
+  include apt
   # mysql options
   $override_options = {
   'mysqld' => {
@@ -22,6 +23,7 @@ class profile_mysql::install {
     'innodb_flush_method'             => 'O_DSYNC',
     'innodb_buffer_pool_instances'    => '2',
   },
+  require  => Exec['apt_update'],
 }
 
   class { '::mysql::server':
