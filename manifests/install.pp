@@ -22,6 +22,7 @@ class profile_mysql::install {
     'bind_address'                    => '0.0.0.0',
     'innodb_flush_method'             => 'O_DSYNC',
     'innodb_buffer_pool_instances'    => '2',
+    'wait_timeout'                    => '600',
   },
   require  => Exec['apt_update'],
 }
