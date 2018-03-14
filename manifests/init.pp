@@ -38,7 +38,7 @@ class profile_mysql
   validate_string($query_cache_size)
 
   if versioncmp($::facterversion, '2.4.6') > 0 {
-    if 'vdb' in $::disks {
+    if ( 'vdb' in $::disks ) or ( 'sdb' in $::disks ) {
       class { '::profile_mysql::lvm':
         notify => Class[ '::profile_mysql::install' ],
       }
