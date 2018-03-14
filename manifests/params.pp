@@ -8,8 +8,8 @@ class profile_mysql::params {
   $dbuser = 'nd-app'
   $dbpassword = hiera('db_password', 'welkom01')
   $dbgrant = ['GRANT', 'SELECT', 'INSERT', 'UPDATE', 'DELETE']
-  $dbvol = '/dev/vdb'
-  $nfsvol = '/dev/vdc'
+  $dbvol = '/dev/vdc'
+  $nfsvol = '/dev/vdb'
   $datadir = '/var/lib/mysql-local'
   $innodb_buffer_pool_size         = '8G'
   $innodb_additional_mem_pool_size = '20M'
