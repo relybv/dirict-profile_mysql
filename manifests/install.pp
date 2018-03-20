@@ -23,6 +23,7 @@ class profile_mysql::install {
     'innodb_flush_method'             => 'O_DSYNC',
     'innodb_buffer_pool_instances'    => '2',
     'wait_timeout'                    => '600',
+    'innodb_log_file_size'            => '100M',
   },
   require  => Exec['apt_update'],
 }
