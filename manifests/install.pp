@@ -24,6 +24,9 @@ class profile_mysql::install {
     'innodb_buffer_pool_instances'    => '2',
     'wait_timeout'                    => '600',
     'innodb_log_file_size'            => '100M',
+    'long_query_time'                 => '10',
+    'slow_query_log'                  => '1',
+    'slow_query_log_file'             => '/var/log/mysql/slow.log',
   },
   require  => Exec['apt_update'],
 }
