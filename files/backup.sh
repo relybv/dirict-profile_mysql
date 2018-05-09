@@ -6,4 +6,5 @@ now=$(date "+%d-%m-%Y")
 bkufile="${bkupath}all_databases-${now}-.sql"
 /usr/bin/mysqldump --all-databases > $bkufile
 /usr/bin/pigz --best $bkufile
+find /backup/all_databases* -mtime +1 -type f -delete
 echo "End backup for ${now}" >> /root/bku.log
